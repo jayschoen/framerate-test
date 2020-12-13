@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+
+      #canvas {
+        background: black;
+        width: 100%;
+      }
+
+      #results {
+        float: left;
+        width: 20%;
+      }
+
+      #fps {
+        float: left;
+        width: 15%;
+      }
+
+      #position {
+        float: left;
+        width: 30%;
+      }
+
+      #velocity {
+        float: left;
+        width: 20%;
+      }
+
+      label {
+        display: inline-block;
+        text-align: right;
+      }
+
+      #bounce_controls {
+        float: left;
+        width: 15%;
+      }
+
+    </style>
+  </head>
+
+  <body>
+  <div id="results">Results:</div>
+
+  <div id="fps">
+    <label for="framerate">fps:</label>
+    <input id="framerate" type="text" size="2" maxlength="2" onkeyup="update_value(this)">
+  </div>
+
+  <div id="position">x: y: </div>
+
+  <div id="velocity">
+    <div>
+      <label for="xvelocity">xVel:</label>
+      <input id="xvelocity" type="text" size="5" maxlength="5" onkeyup="update_value(this)">
+    </div>
+    <div>
+      <label for="yvelocity">yVel:</label>
+      <input id="yvelocity" type="text" size="5" maxlength="5" onkeyup="update_value(this)">
+    </div>
+  </div>
+
+  <div id="bounce_controls">
+    <input type="checkbox" id="horizontal_bounce" onchange="update_value(this)">
+    <label for="horizontal_bounce">hBounce</label><br>
+
+    <input type="checkbox" id="vertical_bounce" onchange="update_value(this)">
+    <label for="horizontal_bounce">vBounce</label><br>
+  </div>
+
+  <canvas id="canvas"></canvas>
+  </body>
+</html>
+
+<script src="framerate_test.js"></script>
