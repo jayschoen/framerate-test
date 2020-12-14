@@ -13,7 +13,7 @@ var ctx = canvas.getContext("2d")
 ctx.fillStyle = "red"
 
 var velocity = {
-	x: 0.5,
+	x: 0.05,
   y: 3
 }
 
@@ -35,13 +35,19 @@ loop(fps);
 
 function update() {
       
+	// velocity multipled by the change in time
+    // keeps movement consistent in case of drop in framerate
+    // ie, apparent speed becomes constant
+	velx = velocity.x * elapsed;
+    vely = velocity.y * elapsed;
+      
     if (horizontal_bounce) {
     
       // bounce left/right
       if (horizontal_direction) {
-        position.x += velocity.x;
+        position.x += velx;
       } else {
-        position.x -= velocity.x;
+        position.x -= velx;
       }
 
       if (position.x > canvas.width) {
@@ -55,7 +61,7 @@ function update() {
     } else {
     
     	// loop horizontally
-    	position.x += velocity.x;
+    	position.x += velx;
      
       if (position.x > canvas.width) {
         position.x -= canvas.width;
@@ -63,14 +69,13 @@ function update() {
       
     }
     
-    
     if (vertical_bounce) {
     
       //bounce up/down
       if (vertical_direction) {
-        position.y += velocity.y;
+        position.y += vely;
       } else {
-        position.y -= velocity.y;
+        position.y -= vely;
       }
 
       if (position.y > canvas.height) {
