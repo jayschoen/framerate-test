@@ -13,8 +13,8 @@ var ctx = canvas.getContext("2d")
 ctx.fillStyle = "red"
 
 var velocity = {
-	x: 0.05,
-  y: 3
+  x: 0.05,
+  y: 0.03
 }
 
 document.getElementById("xvelocity").defaultValue = velocity.x;
